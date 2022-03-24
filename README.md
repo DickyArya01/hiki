@@ -30,5 +30,5 @@ _Below is a tutorial of how to use this app.
 <br />
 <div align="center">
   <a href="https://github.com/Thoriq-ha/hiki">
-    <img src="assets/images/light.png" alt="Logo" width="80" height="80">
+    <img src="assets/images/dark.png" alt="Logo" width="80">
   </a>
