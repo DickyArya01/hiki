@@ -35,6 +35,5 @@ _Below is a tutorial of how to use this app.
    ```
 4. Consuming API (On Rendering)
    ```sh
-  http://hiki-api.bintangmfhd.tech/
+  Link : http://hiki-api.bintangmfhd.tech/
    ```
--------------------------------
