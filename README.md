@@ -1,16 +1,34 @@
 # hiki
 
-A new Flutter project.
+## HIKI, Hi Kickers. Kick the ball - Keep your bone.
 
-## Getting Started
+HIKI is a futsal friend search service as well as easy field reservations without worrying about where and with whom the Kickers play.
+Hiki offers a service to find the closest exercise buddy, field booking/booking service, as well as integrated payments.
+more than that there is a chat feature in it so that it will make it easier for Kickers to coordinate with each other.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Installation
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+_Below is a tutorial of how to use this app.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Thoriq-ha/hiki.git
+   ```
+2. Run pub get
+   ```sh
+   flutter pub get
+   ```
+   
+ 3. Run this project
+   ```sh
+   flutter run
+   ```
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/Thoriq-ha/hiki">
+    <img src="assets/images/light.png" alt="Logo" width="80" height="80">
+  </a>
