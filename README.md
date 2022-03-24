@@ -1,4 +1,8 @@
-# hiki
+<br />
+<div align="center">
+  <a href="https://github.com/Thoriq-ha/hiki">
+    <img src="assets/images/dark.png" alt="Logo" width="80">
+  </a>
 
 ## HIKI, Hi Kickers. Kick the ball - Keep your bone.
 
@@ -7,11 +11,6 @@ Hiki offers a service to find the closest exercise buddy, field booking/booking 
 more than that there is a chat feature in it so that it will make it easier for Kickers to coordinate with each other.
 
 <!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/Thoriq-ha/hiki">
-    <img src="assets/images/dark.png" alt="Logo" width="80">
-  </a>
 <br />
 <div align="center">
   <a href="https://github.com/Thoriq-ha/hiki">
@@ -30,8 +29,7 @@ _Below is a tutorial of how to use this app.
    ```sh
    flutter pub get
    ```
-   
- 3. Run this project
+3. Run this project
    ```sh
    flutter run
    ```
