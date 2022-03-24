@@ -59,21 +59,21 @@ class Profil extends GetView<HomeController> {
                       style: const TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.w600,
-                          color: Colors.black),
+                          color: Colors.white),
                     ),
                     Text(
                       'Nomor : ${AppController.user!.nomer}',
                       style: const TextStyle(
                           fontSize: 14.0,
                           fontWeight: FontWeight.w300,
-                          color: Colors.black38),
+                          color: Colors.white),
                     ),
                     Text(
                       'Email : ${AppController.user!.email}',
                       style: const TextStyle(
                           fontSize: 14.0,
                           fontWeight: FontWeight.w300,
-                          color: Colors.black38),
+                          color: Colors.white),
                     ),
                     const SizedBox(
                       height: 20.0,

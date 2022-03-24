@@ -1,10 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hiki/app/global/constants/images.dart';
-import 'package:hiki/app/global/controller/app_controller.dart';
-import 'package:hiki/app/global/theme/colors.dart';
 import 'package:hiki/app/modules/home/controllers/home_controller.dart';
 
 class BerandaTab extends GetView<HomeController> {
@@ -19,9 +14,23 @@ class BerandaTab extends GetView<HomeController> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 36),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            TextFormField(
+              style: Theme.of(context).textTheme.bodyText1,
+              controller: controller.textController['search'],
+              // autovalidateMode: AutovalidateMode.onUserInteraction,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(14),
+                label: const Text("Search"),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(),
+                ),
+                prefixIcon: const Icon(Icons.search),
+              ),
+            ),
             // Scroll Room
             SizedBox(
               height: 350,
@@ -38,11 +47,48 @@ class BerandaTab extends GetView<HomeController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Image(
+                              Container(
                                 height: 200,
-                                fit: BoxFit.cover,
-                                image: NetworkImage(
-                                    'https://images.unsplash.com/photo-1630420598913-44208d36f9af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80'),
+                                child: Stack(
+                                  children: [
+                                    const Image(
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                          'https://images.unsplash.com/photo-1630420598913-44208d36f9af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80'),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Text('23 Mar 2022 \n Rabu',
+                                                  style: TextStyle(
+                                                      color: Colors.white)),
+                                              TextButton(
+                                                  style: ButtonStyle(
+                                                      backgroundColor:
+                                                          MaterialStateProperty
+                                                              .all(Colors
+                                                                  .white38)),
+                                                  onPressed: () {},
+                                                  child: const Text(
+                                                    '14.00',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ))
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                               const SizedBox(
                                 height: 16,
@@ -100,7 +146,7 @@ class BerandaTab extends GetView<HomeController> {
             ),
             // List People
             SizedBox(
-              height: 200,
+              height: 400,
               // color: Colors.white,
               child: ListView.builder(
                   itemCount: 10,

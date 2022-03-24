@@ -28,9 +28,6 @@ class HomeView extends GetView<HomeController> {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
         borderRadius: const BorderRadius.only(

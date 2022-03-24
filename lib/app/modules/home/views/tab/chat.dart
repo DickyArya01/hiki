@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hiki/app/global/constants/images.dart';
 import 'package:hiki/app/modules/home/controllers/home_controller.dart';
 
 class ChatTab extends GetView<HomeController> {
@@ -10,7 +11,10 @@ class ChatTab extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(title: const Text("Chat")),
       body: SingleChildScrollView(
-        child: Column(),
+        child: Image.asset(
+          Images.chat,
+          fit: BoxFit.fitWidth,
+        ),
       ),
     );
   }

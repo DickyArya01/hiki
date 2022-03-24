@@ -56,10 +56,6 @@ class LandingView extends GetView<LandingController> {
                               .bodyText2!
                               .copyWith(color: Colors.grey),
                         )),
-                    Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Image.asset(Images.quran),
-                    ),
                     MaterialButton(
                       onPressed: () {
                         Get.toNamed(Routes.LOGIN);

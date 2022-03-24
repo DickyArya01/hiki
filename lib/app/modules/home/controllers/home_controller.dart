@@ -20,6 +20,10 @@ class HomeController extends GetxController {
   PersistentTabController tabController =
       PersistentTabController(initialIndex: 0);
 
+  Map<String, TextEditingController> textController = {
+    'search': TextEditingController(),
+  };
+
   final SharedPreferences _data = SharedData.pref;
 
   String waktu = "";
