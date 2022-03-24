@@ -33,11 +33,10 @@ _Below is a tutorial of how to use this app.
    ```sh
    flutter run
    ```
-4. Consuming API (On Maintenance)
+4. Consuming API (On Rendering)
   
    ```sh
   http://hiki-api.bintangmfhd.tech/
-
    ```
 
 
