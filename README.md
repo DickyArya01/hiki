@@ -10,6 +10,9 @@ HIKI is a futsal friend search service as well as easy field reservations withou
 Hiki offers a service to find the closest exercise buddy, field booking/booking service, as well as integrated payments.
 more than that there is a chat feature in it so that it will make it easier for Kickers to coordinate with each other.
 
+  
+ Youtube Video Link : https://youtu.be/RPrM2yJkTEI
+  
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -33,16 +36,10 @@ _Below is a tutorial of how to use this app.
    ```sh
    flutter run
    ```
-4. Consuming API (On Rendering)
-   ```sh
-  Link : http://hiki-api.bintangmfhd.tech
-   ```
+4. Consuming API (On Rendering) Link : http://hiki-api.bintangmfhd.tech
 
   
-Youtube Video
-   ```sh
-  Link : https://youtu.be/RPrM2yJkTEI
-   ```
+
   
   
   
