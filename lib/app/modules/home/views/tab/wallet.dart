@@ -8,12 +8,13 @@ class WalletTab extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Hi Wallet")),
-      body: SingleChildScrollView(
-        child: Image.asset(
-          Images.wallet,
-          fit: BoxFit.fitWidth,
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Image.asset(
+            Images.wallet,
+            fit: BoxFit.fitWidth,
+          ),
         ),
       ),
     );

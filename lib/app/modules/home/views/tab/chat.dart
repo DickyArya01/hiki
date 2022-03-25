@@ -8,12 +8,13 @@ class ChatTab extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Chat")),
-      body: SingleChildScrollView(
-        child: Image.asset(
-          Images.chat,
-          fit: BoxFit.fitWidth,
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Image.asset(
+            Images.chat,
+            fit: BoxFit.fitWidth,
+          ),
         ),
       ),
     );

@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class BaseNetwork {
-  static final String baseUrl = "https://covid19.mathdro.id/api";
+  static const String baseUrl = "https://hiki-api.bintangmfhd.tech/";
 
   static Future<Map<String, dynamic>?> get(String partUrl) async {
     final fullUrl = baseUrl + "/" + partUrl;

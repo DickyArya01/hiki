@@ -12,9 +12,9 @@ class DefaultTheme {
               OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
           fillColor: Colors.orange,
           iconColor: Colors.white),
-      appBarTheme: AppBarTheme(
-          elevation: 0,
-          backgroundColor: ThemeData.dark().scaffoldBackgroundColor),
+      appBarTheme:
+          AppBarTheme(elevation: 0, backgroundColor: MyColors.secondary),
+      scaffoldBackgroundColor: MyColors.secondary,
       textTheme: _textTheme(Colors.white));
 
   static TextTheme _textTheme(Color color) => TextTheme(

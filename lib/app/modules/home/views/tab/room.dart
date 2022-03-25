@@ -8,12 +8,13 @@ class RoomTab extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Create Room")),
-      body: SingleChildScrollView(
-        child: Image.asset(
-          Images.create_room,
-          fit: BoxFit.fitWidth,
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Image.asset(
+            Images.create_room,
+            fit: BoxFit.fitWidth,
+          ),
         ),
       ),
     );

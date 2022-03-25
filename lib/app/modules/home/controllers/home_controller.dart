@@ -20,10 +20,6 @@ class HomeController extends GetxController {
   PersistentTabController tabController =
       PersistentTabController(initialIndex: 0);
 
-  Map<String, TextEditingController> textController = {
-    'search': TextEditingController(),
-  };
-
   final SharedPreferences _data = SharedData.pref;
 
   String waktu = "";
@@ -76,14 +72,14 @@ class HomeController extends GetxController {
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.house),
         title: ("Home"),
-        activeColorPrimary: MyColors.primary,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: Colors.black54,
+        inactiveColorPrimary: Colors.white70,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.archivebox),
         title: ("Hi-Wallet"),
-        activeColorPrimary: MyColors.primary,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: Colors.black54,
+        inactiveColorPrimary: Colors.white70,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(
@@ -91,20 +87,20 @@ class HomeController extends GetxController {
           color: Colors.white,
         ),
         title: ("Pick Room"),
-        activeColorPrimary: MyColors.primary,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: Colors.black,
+        inactiveColorPrimary: Colors.white70,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.chat_bubble),
         title: ("Chat"),
-        activeColorPrimary: MyColors.primary,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: Colors.black54,
+        inactiveColorPrimary: Colors.white70,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.person),
         title: ("Profil"),
-        activeColorPrimary: MyColors.primary,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: Colors.black54,
+        inactiveColorPrimary: Colors.white70,
       ),
     ];
   }

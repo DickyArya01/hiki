@@ -16,6 +16,7 @@ class HomeView extends GetView<HomeController> {
       controller: controller.tabController,
       screens: controller.buildScreens(),
       items: controller.navBarsItems(),
+      backgroundColor: Colors.grey,
       confineInSafeArea: true,
       // backgroundColor: MyColors., // Default is Colors.white.
       handleAndroidBackButtonPress: true, // Default is true.
