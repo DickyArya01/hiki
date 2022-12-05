@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hiki/app/modules/home/views/tab/map.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hiki/app/data/data.dart';
@@ -60,9 +61,9 @@ class HomeController extends GetxController {
   List<Widget> buildScreens() {
     return [
       const BerandaTab(),
-      const WalletTab(),
-      const RoomTab(),
-      const ChatTab(),
+      // const WalletTab(),
+       MapTab(),
+      // const ChatTab(),
       const Profil()
     ];
   }
@@ -75,27 +76,27 @@ class HomeController extends GetxController {
         activeColorPrimary: Colors.black54,
         inactiveColorPrimary: Colors.white70,
       ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.archivebox),
-        title: ("Hi-Wallet"),
-        activeColorPrimary: Colors.black54,
-        inactiveColorPrimary: Colors.white70,
-      ),
+      // PersistentBottomNavBarItem(
+      //   icon: const Icon(CupertinoIcons.archivebox),
+      //   title: ("Hi-Wallet"),
+      //   activeColorPrimary: Colors.black54,
+      //   inactiveColorPrimary: Colors.white70,
+      // ),
       PersistentBottomNavBarItem(
         icon: const Icon(
-          CupertinoIcons.plus_circle,
+          CupertinoIcons.map,
           color: Colors.white,
         ),
-        title: ("Pick Room"),
+        title: ("Map"),
         activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white70,
       ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.chat_bubble),
-        title: ("Chat"),
-        activeColorPrimary: Colors.black54,
-        inactiveColorPrimary: Colors.white70,
-      ),
+      // PersistentBottomNavBarItem(
+      //   icon: const Icon(CupertinoIcons.chat_bubble),
+      //   title: ("Chat"),
+      //   activeColorPrimary: Colors.black54,
+      //   inactiveColorPrimary: Colors.white70,
+      // ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.person),
         title: ("Profil"),
