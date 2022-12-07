@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hiki/app/modules/home/views/tab/home.dart';
 import 'package:hiki/app/modules/home/views/tab/map.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -60,9 +61,9 @@ class HomeController extends GetxController {
 
   List<Widget> buildScreens() {
     return [
-      const BerandaTab(),
+      HomePage(),
       // const WalletTab(),
-       MapTab(),
+       const MapTab(),
       // const ChatTab(),
       const Profil()
     ];

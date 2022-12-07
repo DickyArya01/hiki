@@ -1,6 +1,9 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:hiki/app/data/models/futsal.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapTab extends StatefulWidget {
@@ -17,12 +20,20 @@ class _MapTabState extends State<MapTab> {
   Position? _userPosition;
 
   late MapController _mapController;
+  bool showDesc = false;
+
+  late Widget viewDescCardHandler = Container();
+
+  List<Marker> _listFutsalMarker = [];
+
+  List<Marker> _showMarker = [];
+
 
   @override
   void initState() {
     // TODO: implement initState
-    _getCurrentPosition();
     _mapController = MapController();
+    _getCurrentPosition();
     super.initState();
   }
 
@@ -36,6 +47,7 @@ class _MapTabState extends State<MapTab> {
                 _loadingView()
               : _flutterMap(_userPosition!.latitude, _userPosition!.longitude),
               _floatingActionButton(),
+              viewDescCardHandler
             ],
           ),
         ));
@@ -45,6 +57,15 @@ class _MapTabState extends State<MapTab> {
     _mapController.move(LatLng(_userPosition!.latitude, _userPosition!.longitude), 16);
   }
 
+  void _showAllMarker(){
+    for(int i = 0; i < listFutsalCourt.length; i++){
+      _listFutsalMarker.add(dataMarker(listFutsalCourt[i].lat, listFutsalCourt[i].lon, listFutsalCourt[i].title, listFutsalCourt[i].time, listFutsalCourt[i].court, listFutsalCourt[i].isParkingLotExist));
+    }
+
+    _showMarker.add(userLocation(_userPosition!.latitude, _userPosition!.longitude));
+    _showMarker.addAll(_listFutsalMarker);
+
+  }
 
   Future<void> _getCurrentPosition() async {
     final hasPermission = await _handleLocationPermission();
@@ -54,6 +75,7 @@ class _MapTabState extends State<MapTab> {
         desiredAccuracy: LocationAccuracy.high).then(
             (Position position) {
               setState(() => _userPosition = position);
+              _showAllMarker();
         }).catchError((e){
           debugPrint(e);
     });
@@ -91,22 +113,14 @@ class _MapTabState extends State<MapTab> {
     return FlutterMap(
       options: MapOptions(
         center: LatLng(userLatitude, userLongitude),
-        zoom: 16.0,
+        zoom: 14.0,
       ),
       layers: [
         TileLayerOptions(
           urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
           subdomains: ['a','b','c'],
         ),
-        MarkerLayerOptions(markers: [
-          Marker(
-              point: LatLng(userLatitude, userLongitude),
-              builder: (context) => const Icon(
-                Icons.my_location,
-                color: Colors.red,
-                size: 32,
-              ))
-        ])
+        MarkerLayerOptions(markers: _showMarker)
       ],
       mapController: _mapController,
     );
@@ -143,6 +157,71 @@ class _MapTabState extends State<MapTab> {
         child: const Center(child: CircularProgressIndicator(color: Colors.blue),));
   }
 
+  Widget descCard(String title, String time, int court, bool isParkingLotExist){
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          viewDescCardHandler = Container();
+        });
+      },
+      child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.album),
+                title: Text(title),
+                subtitle: Text('Buka: $time\nLapangan: $court \nParkir: ${(isParkingLotExist) ? "Ada" : "Tidak ada"}')
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  TextButton(
+                    child: const Text('LIHAT DETAIL'),
+                    onPressed: () {/* ... */},
+                  ),
+                  const SizedBox(width: 8),
+                  TextButton(
+                    child: const Text('PESAN'),
+                    onPressed: () {/* ... */},
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
+            ],
+          ),
+        ),
+    );
+  }
 
+  Marker dataMarker(double lat, double lon, String title, String time, int court, bool isParkingLotExist) {
+    return Marker(
+        point: LatLng(lat,lon),
+        width: 300,
+        height: 168.75,
+        builder: (context) => GestureDetector(
+            onTap: () {
+              setState((){
+                viewDescCardHandler = descCard(title, time, court, isParkingLotExist);
+              });
+            },
+            child: const Icon(
+              Icons.location_on,
+              color: Colors.red,
+              size: 32,
+            )
+        )
+    );
+  }
+
+  Marker userLocation(double userLatitude, double userLongitude){
+    return Marker(
+        point: LatLng(userLatitude, userLongitude),
+        builder: (context) => const Icon(
+          Icons.my_location,
+          color: Colors.red,
+          size: 32,
+        ));
+  }
 
 }
