@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -22,11 +21,11 @@ class _MapTabState extends State<MapTab> {
   late MapController _mapController;
   bool showDesc = false;
 
-  late Widget viewDescCardHandler = Container();
+  late Widget _viewDescCardHandler = Container();
 
-  List<Marker> _listFutsalMarker = [];
+  final List<Marker> _listFutsalMarker = [];
 
-  List<Marker> _showMarker = [];
+  final List<Marker> _showMarker = [];
 
 
   @override
@@ -47,7 +46,7 @@ class _MapTabState extends State<MapTab> {
                 _loadingView()
               : _flutterMap(_userPosition!.latitude, _userPosition!.longitude),
               _floatingActionButton(),
-              viewDescCardHandler
+              _viewDescCardHandler
             ],
           ),
         ));
@@ -62,7 +61,7 @@ class _MapTabState extends State<MapTab> {
       _listFutsalMarker.add(dataMarker(listFutsalCourt[i].lat, listFutsalCourt[i].lon, listFutsalCourt[i].title, listFutsalCourt[i].time, listFutsalCourt[i].court, listFutsalCourt[i].isParkingLotExist));
     }
 
-    _showMarker.add(userLocation(_userPosition!.latitude, _userPosition!.longitude));
+    _showMarker.add(_userLocation(_userPosition!.latitude, _userPosition!.longitude));
     _showMarker.addAll(_listFutsalMarker);
 
   }
@@ -161,7 +160,7 @@ class _MapTabState extends State<MapTab> {
     return GestureDetector(
       onTap: (){
         setState(() {
-          viewDescCardHandler = Container();
+          _viewDescCardHandler = Container();
         });
       },
       child: Card(
@@ -202,7 +201,7 @@ class _MapTabState extends State<MapTab> {
         builder: (context) => GestureDetector(
             onTap: () {
               setState((){
-                viewDescCardHandler = descCard(title, time, court, isParkingLotExist);
+                _viewDescCardHandler = descCard(title, time, court, isParkingLotExist);
               });
             },
             child: const Icon(
@@ -214,7 +213,7 @@ class _MapTabState extends State<MapTab> {
     );
   }
 
-  Marker userLocation(double userLatitude, double userLongitude){
+  Marker _userLocation(double userLatitude, double userLongitude){
     return Marker(
         point: LatLng(userLatitude, userLongitude),
         builder: (context) => const Icon(
