@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:hiki/app/data/models/futsal.dart';
+import 'package:hiki/app/modules/detail/view/detail.dart';
+import 'package:hiki/app/routes/app_pages.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapTab extends StatefulWidget {
@@ -177,7 +180,9 @@ class _MapTabState extends State<MapTab> {
                 children: <Widget>[
                   TextButton(
                     child: const Text('LIHAT DETAIL'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      Get.toNamed(Routes.DETAIL);
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(

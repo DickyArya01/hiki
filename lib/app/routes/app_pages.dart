@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:hiki/app/modules/detail/view/detail.dart';
 
 import '../modules/auth/landing/bindings/landing_binding.dart';
 import '../modules/auth/landing/views/landing_view.dart';
@@ -53,5 +54,9 @@ class AppPages {
         binding: LandingBinding(),
         transition: Transition.fade,
         transitionDuration: const Duration(milliseconds: 500)),
+    GetPage(
+        name: _Paths.DETAIL,
+        page: () =>  const DetailView(),
+    )
   ];
 }

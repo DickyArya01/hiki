@@ -11,6 +11,7 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const LUPAPASSWORD = _Paths.LUPAPASSWORD;
   static const LANDING = _Paths.LANDING;
+  static const DETAIL = _Paths.DETAIL;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const LUPAPASSWORD = '/lupapassword';
   static const LANDING = '/landing';
+  static const DETAIL = '/detail';
 }

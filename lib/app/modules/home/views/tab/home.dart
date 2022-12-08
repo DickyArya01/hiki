@@ -15,8 +15,13 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text("HIKI"),
       ),
-      body: Center(
-        child: Text("Home View"),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          children: [
+            
+          ],
+        ),
       ),
     );
   }

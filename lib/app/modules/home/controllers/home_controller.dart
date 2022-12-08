@@ -61,7 +61,7 @@ class HomeController extends GetxController {
 
   List<Widget> buildScreens() {
     return [
-      HomePage(),
+      const HomePage(),
       // const WalletTab(),
        const MapTab(),
       // const ChatTab(),
