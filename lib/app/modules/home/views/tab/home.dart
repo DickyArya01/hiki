@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   late TextEditingController _controller;
 
-  final List<Futsal> _listFutsal = List.from(listFutsalCourt);
+  late List<Futsal> _listFutsal = List.from(listFutsalCourt);
 
   @override
   void initState() {
@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       child: TextField(
+          onChanged: (value) => updateList(value),
           controller: _controller,
           decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               filled: true,
               fillColor: Colors.white10,
               hintText: searchLabelText,
-              hintStyle: TextStyle(color: Colors.orange),
+              hintStyle: const TextStyle(color: Colors.orange),
               prefixIcon: const Icon(Icons.search, color: Colors.orange,),
           ),
         ),
@@ -87,7 +88,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: ListTile(
                 leading: Image.network("https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg", fit: BoxFit.fitHeight,),
-                title: Text(_listFutsal[index].title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                title: Flexible(child: Text(_listFutsal[index].title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold), maxLines: 1, overflow: TextOverflow.ellipsis,)),
                 subtitle: Text(_listFutsal[index].lat.toString()),
                 trailing: Expanded(
                   child: Row(
@@ -107,5 +108,11 @@ class _HomePageState extends State<HomePage> {
           )
       ),
     );
+  }
+
+  void updateList(String value) {
+    setState(() {
+      _listFutsal = listFutsalCourt.where((element) => element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+    },);
   }
 }
