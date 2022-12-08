@@ -61,7 +61,7 @@ class _MapTabState extends State<MapTab> {
 
   void _showAllMarker(){
     for(int i = 0; i < listFutsalCourt.length; i++){
-      _listFutsalMarker.add(dataMarker(listFutsalCourt[i].lat, listFutsalCourt[i].lon, listFutsalCourt[i].title, listFutsalCourt[i].time, listFutsalCourt[i].court, listFutsalCourt[i].isParkingLotExist));
+      _listFutsalMarker.add(dataMarker(listFutsalCourt[i]));
     }
 
     _showMarker.add(_userLocation(_userPosition!.latitude, _userPosition!.longitude));
@@ -159,7 +159,7 @@ class _MapTabState extends State<MapTab> {
         child: const Center(child: CircularProgressIndicator(color: Colors.blue),));
   }
 
-  Widget descCard(String title, String time, int court, bool isParkingLotExist){
+  Widget descCard(Futsal data){
     return GestureDetector(
       onTap: (){
         setState(() {
@@ -171,9 +171,9 @@ class _MapTabState extends State<MapTab> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.album),
-                title: Text(title),
-                subtitle: Text('Buka: $time\nLapangan: $court \nParkir: ${(isParkingLotExist) ? "Ada" : "Tidak ada"}')
+                leading: const Icon(Icons.album),
+                title: Text(data.title),
+                subtitle: Text('Buka: ${data.time}\nLapangan: court ${data.court}\nParkir: ${(data.isParkingLotExist) ? "Ada" : "Tidak ada"}')
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -181,7 +181,7 @@ class _MapTabState extends State<MapTab> {
                   TextButton(
                     child: const Text('LIHAT DETAIL'),
                     onPressed: () {
-                      Get.toNamed(Routes.DETAIL);
+                      Get.toNamed(Routes.DETAIL, arguments: data);
                     },
                   ),
                   const SizedBox(width: 8),
@@ -198,15 +198,15 @@ class _MapTabState extends State<MapTab> {
     );
   }
 
-  Marker dataMarker(double lat, double lon, String title, String time, int court, bool isParkingLotExist) {
+  Marker dataMarker(Futsal data) {
     return Marker(
-        point: LatLng(lat,lon),
+        point: LatLng(data.lat,data.lon),
         width: 300,
         height: 168.75,
         builder: (context) => GestureDetector(
             onTap: () {
               setState((){
-                _viewDescCardHandler = descCard(title, time, court, isParkingLotExist);
+                _viewDescCardHandler = descCard(data);
               });
             },
             child: const Icon(

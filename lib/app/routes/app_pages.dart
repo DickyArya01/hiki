@@ -56,7 +56,7 @@ class AppPages {
         transitionDuration: const Duration(milliseconds: 500)),
     GetPage(
         name: _Paths.DETAIL,
-        page: () =>  const DetailView(),
+        page: () =>  DetailView(),
     )
   ];
 }

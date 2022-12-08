@@ -1,10 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hiki/app/data/models/futsal.dart';
 import 'package:hiki/app/modules/detail/controller/detail_controller.dart';
 
 class DetailView extends GetView<DetailController> {
-  const DetailView({Key? key}) : super(key: key);
+
+  DetailView({Key? key}) : super(key: key);
+
+  Futsal data = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class DetailView extends GetView<DetailController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text("Detail Page"),
+        child: Text(data.title),
       ),
     );
   }
