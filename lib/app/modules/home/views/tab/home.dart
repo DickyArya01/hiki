@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                 Get.toNamed(Routes.DETAIL, arguments: _listFutsal[index]);
               },
               child: ListTile(
-                leading: Image.network("https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg", fit: BoxFit.fitHeight,),
+                leading: Image.network(_listFutsal[index].imageUrl, fit: BoxFit.cover,),
                 title: Flexible(child: Text(_listFutsal[index].title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold), maxLines: 1, overflow: TextOverflow.ellipsis,)),
                 subtitle: Text(_listFutsal[index].lat.toString()),
                 trailing: Expanded(
