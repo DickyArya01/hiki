@@ -48,83 +48,114 @@ class DetailView extends GetView<DetailController> {
   }
 
   Widget _titleSection() {
-    return Row(
-      children: [
-        Expanded(
-          /*1*/
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              /*2*/
-              Container(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  data.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Row(
+        children: [
+          Expanded(
+            /*1*/
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /*2*/
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    data.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                    ),
                   ),
                 ),
-              ),
-              Text(
-                data.lat.toString(),
-                style: TextStyle(
-                  color: Colors.grey[500],
+                Text(
+                  data.lat.toString(),
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                    fontSize: 14
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        /*3*/
-        Icon(
-          Icons.star,
-          color: Colors.red[500],
-        ),
-        Text('5'),
-      ],
+          /*3*/
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          Text('5'),
+        ],
+      ),
     );
   }
 
   Widget _buttonSection() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildButtonColumn(Colors.orange, Icons.call, 'CALL'),
-        _buildButtonColumn(Colors.orange, Icons.share, 'SHARE'),
-      ],
+    int _idButtonBook = 1;
+    int _idButtonShare = 2;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _buildButtonColumn(Colors.orange, Icons.book, 'PESAN', _idButtonBook),
+          _buildButtonColumn(Colors.orange, Icons.share, 'SHARE', _idButtonShare),
+        ],
+      ),
     );
   }
 
-  Widget _buildButtonColumn(Color color, IconData icon, String label) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: color),
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
+  Widget _buildButtonColumn(Color color, IconData icon, String label, int idButton) {
+    return InkWell(
+      onTap: (){
+        switch(idButton){
+          case 1:{
+            print("Booking lapangan");
+          }
+            break;
+          case 2:{
+            print("Share");
+          }
+            break;
+          default:{
+            print("Button Function");
+          }
+          break;
+        }
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color, size: 32,),
+          Container(
+            margin: const EdgeInsets.only(top: 8),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
 
   Widget _textSection() {
-    return const Text(
-      'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-          'Alps. Situated 1,578 meters above sea level, it is one of the '
-          'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-          'half-hour walk through pastures and pine forest, leads you to the '
-          'lake, which warms to 20 degrees Celsius in the summer. Activities '
-          'enjoyed here include rowing, and riding the summer toboggan run.',
-      softWrap: true,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Text(
+        'lake oeschinen lies at the foot of the blüemlisalp in the bernese '
+            'alps. situated 1,578 meters above sea level, it is one of the '
+            'larger alpine lakes. a gondola ride from kandersteg, followed by a '
+            'half-hour walk through pastures and pine forest, leads you to the '
+            'lake, which warms to 20 degrees celsius in the summer. activities '
+            'enjoyed here include rowing, and riding the summer toboggan run.',
+        softWrap: true,
+      ),
     );
   }
 
