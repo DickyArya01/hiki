@@ -4,7 +4,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:hiki/app/data/models/futsal.dart';
-import 'package:hiki/app/modules/detail/view/detail.dart';
 import 'package:hiki/app/routes/app_pages.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -22,6 +21,9 @@ class _MapTabState extends State<MapTab> {
   Position? _userPosition;
 
   late MapController _mapController;
+
+  late TextEditingController _textFieldController;
+
   bool showDesc = false;
 
   late Widget _viewDescCardHandler = Container();
@@ -35,6 +37,7 @@ class _MapTabState extends State<MapTab> {
   void initState() {
     // TODO: implement initState
     _mapController = MapController();
+    _textFieldController = TextEditingController();
     _getCurrentPosition();
     super.initState();
   }
@@ -49,7 +52,12 @@ class _MapTabState extends State<MapTab> {
                 _loadingView()
               : _flutterMap(_userPosition!.latitude, _userPosition!.longitude),
               _floatingActionButton(),
-              _viewDescCardHandler
+              Column(
+                children: [
+                  (_userPosition == null) ? Container() : textFieldSearch(),
+                  _viewDescCardHandler
+                ],
+              )
             ],
           ),
         ));
@@ -63,7 +71,6 @@ class _MapTabState extends State<MapTab> {
     for(int i = 0; i < listFutsalCourt.length; i++){
       _listFutsalMarker.add(dataMarker(listFutsalCourt[i]));
     }
-
     _showMarker.add(_userLocation(_userPosition!.latitude, _userPosition!.longitude));
     _showMarker.addAll(_listFutsalMarker);
 
@@ -108,7 +115,6 @@ class _MapTabState extends State<MapTab> {
       return false;
     }
     return true;
-
   }
 
   Widget _flutterMap(double userLatitude, double userLongitude){
@@ -226,6 +232,45 @@ class _MapTabState extends State<MapTab> {
           color: Colors.red,
           size: 32,
         ));
+  }
+
+  Widget textFieldSearch() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: TextField(
+        onChanged: (value) => updateList(value),
+        controller: _textFieldController,
+        style: const TextStyle(color: Colors.black),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          hintText: "Search by region",
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: const Icon(Icons.location_on, color: Colors.grey),
+        ),
+      ),
+    );
+  }
+
+  void updateList(String value) {
+    setState(() {
+      List<Futsal> listFutsal = List.from(listFutsalCourt);
+      List<Futsal> listFutsalFiltered = listFutsal.where((element) => element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+      _listFutsalMarker.clear();
+
+      for(int i = 0; i < listFutsalFiltered.length; i++){
+        _listFutsalMarker.add(dataMarker(listFutsalFiltered[i]));
+      }
+
+      _showMarker.clear();
+
+      _showMarker.add(_userLocation(_userPosition!.latitude, _userPosition!.longitude));
+      _showMarker.addAll(_listFutsalMarker);
+
+    });
   }
 
 }
