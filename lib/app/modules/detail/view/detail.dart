@@ -69,7 +69,7 @@ class DetailView extends GetView<DetailController> {
                   ),
                 ),
                 Text(
-                  data.lat.toString(),
+                  data.wilayah,
                   style: TextStyle(
                     color: Colors.grey[500],
                     fontSize: 14
@@ -148,14 +148,7 @@ class DetailView extends GetView<DetailController> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Text(
-        'lake oeschinen lies at the foot of the blüemlisalp in the bernese '
-            'alps. situated 1,578 meters above sea level, it is one of the '
-            'larger alpine lakes. a gondola ride from kandersteg, followed by a '
-            'half-hour walk through pastures and pine forest, leads you to the '
-            'lake, which warms to 20 degrees celsius in the summer. activities '
-            'enjoyed here include rowing, and riding the summer toboggan run.',
-        softWrap: true,
-      ),
+      data.desc),
     );
   }
 

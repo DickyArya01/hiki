@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hiki/app/constant.dart';
 import 'package:hiki/app/data/models/Service.dart';
 import 'package:hiki/app/data/models/futsal.dart';
+import 'package:hiki/app/routes/app_pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,20 +19,20 @@ class _HomePageState extends State<HomePage> {
 
   late List<Futsal> _listFutsal = List.from(listFutsalCourt);
 
-  List<FutsalApi> listfutsalapi = [];
+  // List<FutsalApi> listfutsalapi = [];
 
   // List<User> listUser = [];
 
   Service serviceApi = Service();
 
-  // late Future<List<FutsalApi>> listFutsal;
-  late Future<List<User>> listUser;
+  // List<FutsalApi> listFutsal = [];
+  // late Future<List<User>> listUser;
 
   @override
   void initState() {
     _controller = TextEditingController();
     _listFutsal = listFutsalCourt;
-    listUser = serviceApi.getData();
+    // listFutsal = lisFutsalApi;
     // listUser = serviceApi.getData();
     super.initState();
   }
@@ -88,48 +90,35 @@ class _HomePageState extends State<HomePage> {
 
   Widget listFutsalView(BuildContext context) {
     return Expanded(
-      child: FutureBuilder<List<User>>(
-        future: listUser,
-        builder: (context, snapshot) {
-          if(snapshot.hasData){
-            List<User> list = snapshot.data!;
-            return ListView.builder(
-                itemCount: list.length,
-                itemBuilder: (context, index) => Container(
-                  margin: const EdgeInsets.only(bottom: 16),
-                  child: GestureDetector(
-                    onTap: () {
-                      // Get.toNamed(Routes.DETAIL, arguments: _listFutsal[index]);
-                    },
-                    child: ListTile(
-                      // leading: Image.network("https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg", fit: BoxFit.cover,),
-                      leading: Image.network(list[index].avatar, fit: BoxFit.cover,),
-                      title: Flexible(child: Text(list[index].firstName, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold), maxLines: 1, overflow: TextOverflow.ellipsis,)),
-                      subtitle: Text(list[index].email),
-                      trailing: Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.min,
-                          children: const <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(right: 8.0),
-                              child: Icon(Icons.star, color: Colors.yellow,),
-                            ),
-                            Text("5", style: TextStyle(color: Colors.yellow),)
-                          ],
-                        ),
+        // child: FutureBuilder<List<FutsalApi>>(
+      child: ListView.builder(
+          itemCount: _listFutsal.length,
+          itemBuilder: (context, index) => Container(
+            margin: const EdgeInsets.only(bottom: 16),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.DETAIL, arguments: _listFutsal[index]);
+              },
+              child: ListTile(
+                leading: Image.network(_listFutsal[index].imageUrl, fit: BoxFit.cover, width: 100,),
+                title: Flexible(child: Text(_listFutsal[index].title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold), maxLines: 1, overflow: TextOverflow.ellipsis,)),
+                subtitle: Text(_listFutsal[index].wilayah),
+                trailing: Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                    children: const <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: Icon(Icons.star, color: Colors.yellow,),
                       ),
-                    ),
+                      Text("5", style: TextStyle(color: Colors.yellow),)
+                    ],
                   ),
-                )
-
-            );
-          } else{
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
+                ),
+              ),
+            ),
+          )
       )
     );
   }

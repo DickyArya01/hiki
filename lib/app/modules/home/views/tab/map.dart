@@ -258,7 +258,7 @@ class _MapTabState extends State<MapTab> {
   void updateList(String value) {
     setState(() {
       List<Futsal> listFutsal = List.from(listFutsalCourt);
-      List<Futsal> listFutsalFiltered = listFutsal.where((element) => element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+      List<Futsal> listFutsalFiltered = listFutsal.where((element) => element.wilayah!.toLowerCase().contains(value.toLowerCase())).toList();
       _listFutsalMarker.clear();
 
       for(int i = 0; i < listFutsalFiltered.length; i++){

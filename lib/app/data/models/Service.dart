@@ -10,6 +10,7 @@ class Service{
     if(response.statusCode == 200){
       List jsonResponse = json.decode(response.body)["data"];
       print(response.body);
+      // return jsonResponse.map((e) => FutsalApi.fromJson(e)).toList();
       return jsonResponse.map((e) => User.fromJson(e)).toList();
     }else {
       throw Exception('Failed to load data');
