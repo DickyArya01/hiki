@@ -25,6 +25,130 @@ List<Futsal> listFutsalCourt = [
   Futsal(lat: -7.927232695284277, lon: 112.60447546317106, title: "Champions Futsal Tlogomas ", time: "08.00 - 22.00", wilayah: "Tlogomas", court: 5, isParkingLotExist: true, imageUrl: "https://lh5.googleusercontent.com/p/AF1QipNcI3zTLxvqnTK3hdvf3EOzZSk081nZ-iyr5BQZ=w408-h544-k-no", desc: textDesc),
   Futsal(lat: -7.93589388773497, lon: 112.60048884063167, title: "Olympico Futsal Arena", time: "09.00 - 21.00", wilayah: "Sumbersari", court: 3, isParkingLotExist: true, imageUrl: "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=5KwEtFfkeoGNisWquTlVbQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=353.9645&pitch=0&thumbfov=100", desc: textDesc),
   Futsal(lat: -7.945319095666317, lon: 112.61746413660579, title: "Viva Futsal", time: "06.00 - 02.00", wilayah: "Jatimulyo", court: 3, isParkingLotExist: true, imageUrl: "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg", desc: textDesc),
+  Futsal(
+      lat: -7.940645125131871,
+      lon: 112.62542019992617,
+      title: "Angkasa Futsal Malang",
+      time: "08:00 - 22:00",
+      wilayah: "Tulusrejo",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.935629639188273,
+      lon: 112.6244760623559,
+      title: "Futsal Nikimirah",
+      time: "24 Jam",
+      wilayah: "Mojolangu",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.948635773016473,
+      lon: 112.6223945616565,
+      title: "The Scorpion Futsal",
+      time: "24 Jam",
+      wilayah: "Jatimulyo",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.935544630470875,
+      lon: 112.63423919665954,
+      title: "Wiga Futsal",
+      time: "06.00 - 02.00",
+      wilayah: "Mojolangu",
+      court: 2,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.940517538824484,
+      lon: 112.63702777356515,
+      title: "ABM Futsal",
+      time: "07:00 - 22:00",
+      wilayah: "Mojolangu",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.94408261041232,
+      lon: 112.64353364258746,
+      title: "Wijaya Putra Futsal",
+      time: "10:00 - 22:00",
+      wilayah: "Blimbing",
+      court: 3,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc:textDesc),
+  Futsal(
+      lat: -7.993176528925621,
+      lon: 112.62091694332511,
+      title: "Bima Sakti Futsal",
+      time: "07.00 - 02.00",
+      wilayah: "Sukun",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(lat: -7.932197814653308, lon: 112.63001005488609, title: "Zona SM Futsal", time: "24 Jam", wilayah: "Mojolangu", court: 10, isParkingLotExist: true, imageUrl: "https://lh5.googleusercontent.com/p/AF1QipOmjzQgO2dBvOdM3prqUt5eaCtkyZyShJzlIbUx=w408-h306-k-no", desc: textDesc),
+  Futsal(lat: -7.955080244829175, lon: 112.6047852076709, title: "Ongisnade Futsal", time: "07.00 - 22.00", wilayah: "Karangbesuki", court: 2, isParkingLotExist: true, imageUrl: "https://lh5.googleusercontent.com/p/AF1QipM1tRd9Owl9PKEgA4CQp-l7NPQ_axcCXoytV-G-=w408-h544-k-no", desc: textDesc),
+  Futsal(lat: -7.936607238703678, lon: 112.60061689712619, title: "Buana Futsal", time: "09.00 - 21.00", wilayah: "Merjosari", court: 2, isParkingLotExist: true, imageUrl: "https://lh5.googleusercontent.com/p/AF1QipN5bpbUUA-zUvPo8lYNxAqJxIQOKFdXqzriDYTL=w426-h240-k-no", desc: textDesc),
+  Futsal(
+      lat: -7.97485941913458,
+      lon: 112.65324659573139,
+      title: "Biru Futsal",
+      time: "06.00 - 02.00",
+      wilayah: "Sawojajar",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -8.000205175272578,
+      lon: 112.62609894096276,
+      title: "AS Futsal",
+      time: "0:00 - 22:00",
+      wilayah: "Sukun",
+      court: 3,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.984683115419867,
+      lon: 112.59789188889955,
+      title: "NIKOLAS FUTSAL 1",
+      time: "07:00 - 23:00",
+      wilayah: "Sukun",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
+  Futsal(
+      lat: -7.946614883987896,
+      lon: 112.63979520647315,
+      title: "BHS Futsal",
+      time: "07:00 - 23:00",
+      wilayah: "Blimbing",
+      court: 1,
+      isParkingLotExist: true,
+      imageUrl:
+      "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/08/29031825/cover-15.jpg",
+      desc: textDesc),
 ];
 
 class FutsalApi{

@@ -26,7 +26,36 @@ class _MapTabState extends State<MapTab> {
 
   bool showDesc = false;
 
-  late Widget _viewDescCardHandler = Container();
+  int searchType = 0;
+
+  late Widget _viewDescCardHandler = Container(
+    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    child: Row(
+      children: [
+        Container(
+            margin: const EdgeInsets.only(right: 8),
+            child: ElevatedButton(onPressed: (){
+              setState(() {
+                searchType = 1;
+              });
+            }, child: Text("Nama"))),
+        Container(
+            margin: const EdgeInsets.only(right: 8),
+            child: ElevatedButton(onPressed: (){
+              setState(() {
+                searchType = 2;
+              });
+            }, child: Text("Wilayah"))),
+        // Container(
+        //     margin: const EdgeInsets.only(right: 8),
+        //     child: ElevatedButton(onPressed: (){
+        //       setState(() {
+        //         searchType = 3;
+        //       });
+        //     }, child: Text("Type Booking"))),
+      ],
+    ),
+  );
 
   final List<Marker> _listFutsalMarker = [];
 
@@ -55,7 +84,8 @@ class _MapTabState extends State<MapTab> {
               Column(
                 children: [
                   (_userPosition == null) ? Container() : textFieldSearch(),
-                  _viewDescCardHandler
+                  (_userPosition == null) ? Container(): _viewDescCardHandler,
+
                 ],
               )
             ],
@@ -169,7 +199,23 @@ class _MapTabState extends State<MapTab> {
     return GestureDetector(
       onTap: (){
         setState(() {
-          _viewDescCardHandler = Container();
+          _viewDescCardHandler = Container(
+            color: Colors.white,
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Row(
+              children: [
+                Container(
+                    margin: const EdgeInsets.only(right: 8),
+                    child: ElevatedButton(onPressed: (){}, child: Text("Nama"))),
+                Container(
+                    margin: const EdgeInsets.only(right: 8),
+                    child: ElevatedButton(onPressed: (){}, child: Text("Wilayah"))),
+                Container(
+                    margin: const EdgeInsets.only(right: 8),
+                    child: ElevatedButton(onPressed: (){}, child: Text("Type Booking"))),
+              ],
+            ),
+          );
         });
       },
       child: Card(
@@ -258,7 +304,23 @@ class _MapTabState extends State<MapTab> {
   void updateList(String value) {
     setState(() {
       List<Futsal> listFutsal = List.from(listFutsalCourt);
-      List<Futsal> listFutsalFiltered = listFutsal.where((element) => element.wilayah!.toLowerCase().contains(value.toLowerCase())).toList();
+      List<Futsal> listFutsalFiltered = [];
+
+      switch(searchType){
+        case 1:{
+          listFutsalFiltered = listFutsal.where((element) => element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+        }
+        break;
+        case 2: {
+          listFutsalFiltered = listFutsal.where((element) => element.wilayah!.toLowerCase().contains(value.toLowerCase())).toList();
+        }
+        break;
+        default: {
+          listFutsalFiltered = listFutsal.where((element) => element.title!.toLowerCase().contains(value.toLowerCase())).toList();
+
+        }
+      }
+
       _listFutsalMarker.clear();
 
       for(int i = 0; i < listFutsalFiltered.length; i++){
